@@ -31,7 +31,7 @@ const AppHeader: React.FC = () => {
     </UncontrolledDropdown>
   ) : (
     <NavItem>
-      <NavLink onClick={redirectToDopeAuth}>Login with DopeAuth</NavLink>
+      <NavLink onClick={redirectToDopeAuth}>Login with email</NavLink>
     </NavItem>
   );
   return (

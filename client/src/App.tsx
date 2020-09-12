@@ -19,8 +19,8 @@ const App: React.FC = () => {
           <Switch>
             <Route exact path="/refresh/:key" component={Refresh} />
             <Route exact path="/login/auth" component={LoginCallback} />
+            <Route exact path="/landing" component={LandingPage} />
             <Route exact path="/" component={GridView} />
-            <Route path="/" component={LandingPage} />
           </Switch>
         </div>
       </CookiesProvider>

@@ -10,7 +10,7 @@ const LandingPage = () => {
       <p> by: HackMIT</p>
 
       <Button onClick={redirectToDopeAuth} color="primary">
-        Login with DopeAuth
+        Login with email 
       </Button>
     </Container>
   );

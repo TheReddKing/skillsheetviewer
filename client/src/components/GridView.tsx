@@ -60,7 +60,7 @@ const GridView: React.FC = () => {
   }, [completeList, filterYear, searchValue]);
 
   const toggleUser = React.useCallback(
-    newUser => {
+    (newUser) => {
       if (newUser === user) {
         setUser(null);
       } else {
@@ -81,14 +81,14 @@ const GridView: React.FC = () => {
       Cell: (props: { original: null }) => (
         <>
           <Button
-            onClick={e => toggleUser(props.original)}
+            onClick={(e) => toggleUser(props.original)}
             color={user === props.original ? "info" : "danger"}
           >
             View
           </Button>
         </>
       ),
-      maxWidth: 80
+      maxWidth: 80,
     },
     { Header: "Name", accessor: "name" },
     { Header: "School", accessor: "school" },
@@ -104,8 +104,8 @@ const GridView: React.FC = () => {
             </span>
           );
         });
-      }
-    }
+      },
+    },
   ];
   const pdfView =
     user != null ? (
@@ -143,7 +143,7 @@ const GridView: React.FC = () => {
             type="select"
             name="filterYear"
             value={filterYear}
-            onChange={event => setFilterYear(event.target.value)}
+            onChange={(event) => setFilterYear(event.target.value)}
           >
             <option key="ALL" value="ALL">
               All years
@@ -152,8 +152,8 @@ const GridView: React.FC = () => {
               STARTINGYEAR,
               STARTINGYEAR + 1,
               STARTINGYEAR + 2,
-              STARTINGYEAR + 3
-            ].map(val => {
+              STARTINGYEAR + 3,
+            ].map((val) => {
               return (
                 <option key={val} value={val}>
                   {val}
@@ -176,7 +176,7 @@ const GridView: React.FC = () => {
       <Input
         name="searchValue"
         value={searchValue}
-        onChange={event => setSearchValue(event.target.value)}
+        onChange={(event) => setSearchValue(event.target.value)}
         onKeyPress={() => console.log("press")}
         placeholder="Name, email, year..."
       />
@@ -226,15 +226,17 @@ const downloadZIP = async (list: User[], done: () => void) => {
     return;
   }
   const allTasks: Promise<boolean>[] = [];
-  list.forEach((user: User) => {
-    allTasks.push(download(folder, user.skillsheet));
-  });
+  if (folder) {
+    list.forEach((user: User) => {
+      allTasks.push(download(folder, user.skillsheet));
+    });
+  }
   await Promise.all(allTasks);
   zip.generateAsync({ type: "blob" }).then(
-    blob => {
+    (blob) => {
       fileSaver.saveAs(blob, "hackmit-skillsheets-2019-filtered.zip");
     },
-    function(err) {
+    function (err) {
       alert("whoops something went wrong :(");
     }
   );

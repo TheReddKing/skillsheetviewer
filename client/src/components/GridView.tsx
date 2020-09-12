@@ -215,7 +215,7 @@ function download(zip: JSZip, url: string) {
 }
 const downloadZIP = async (list: User[], done: () => void) => {
   const zip = JSZip();
-  const folder = zip.folder("hackmit-skillsheets-2019");
+  const folder = zip.folder("hackmit-skillsheets-2020");
   // Try catch
   if (
     !window.confirm(
@@ -234,7 +234,7 @@ const downloadZIP = async (list: User[], done: () => void) => {
   await Promise.all(allTasks);
   zip.generateAsync({ type: "blob" }).then(
     (blob) => {
-      fileSaver.saveAs(blob, "hackmit-skillsheets-2019-filtered.zip");
+      fileSaver.saveAs(blob, "hackmit-skillsheets-2020-filtered.zip");
     },
     function (err) {
       alert("whoops something went wrong :(");

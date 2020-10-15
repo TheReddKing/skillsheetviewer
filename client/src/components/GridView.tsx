@@ -11,7 +11,7 @@ import useData from "../hooks/useData";
 import JSZip from "jszip";
 import fileSaver from "file-saver";
 
-const STARTINGYEAR = 2020;
+const STARTINGYEAR = 2021;
 
 const GridView: React.FC = () => {
   const [isDownloading, setIsDownloading] = React.useState(false);

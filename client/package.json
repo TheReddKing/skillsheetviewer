@@ -17,7 +17,7 @@
     "dotenv": "^8.0.0",
     "file-saver": "^2.0.2",
     "jquery": "^3.4.1",
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "popper.js": "^1.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
